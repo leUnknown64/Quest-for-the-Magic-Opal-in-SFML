@@ -78,25 +78,25 @@ void Game::update(){
 // 2. Rendering game objects
 // 3. Displaying rendered objects on the next frame
 void Game::render(){
-	// Set window's color
+    // Set window's color
     window->clear(sf::Color(0,0,200));
 
-	// Start on the title screen
+    // Start on the title screen
     if(!titleScreen.isGameStarted()){
         titleScreen.update(window);
     }
     else{
-		// Switch to the character creation screen
+        // Switch to the character creation screen
         if(!createIF.isScreenSwitched()){
-			createIF.update(window);
+            createIF.update(window);
         }
-        else
-			// Switch to the game select screen
+        else{
+        // Switch to the game select screen
             if(!(gameCredits.getButton("CONTINUE")->isPressed())){
                 gameCredits.showStoryScreen(window);
             }
             else{
-				// Load in the selected game
+                // Load in the selected game
                 switch(selectGame.getChosenGame()){
                     case 0:
                         selectGame.update(window);
