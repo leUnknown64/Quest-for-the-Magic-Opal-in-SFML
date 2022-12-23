@@ -20,8 +20,8 @@ private:
         "Which of the following does|Theodore not do in the film Her?",
         "The third rule of fight club is|every fight lasts ten minutes."};
 
-	// Stores the split portions of a string in the questions vector
-	std::vector<std::string> splitQuestion;
+    // Stores the split portions of a string in the questions vector
+    std::vector<std::string> splitQuestion;
     
     // Answer choices for each question
     std::vector<std::vector<std::string>> answers = {{"True", "False", "", ""}, {"Corinna", "Marla", "Vivienne", "Jane"},
@@ -36,14 +36,14 @@ private:
     
     // Game logic variables
     int points, currentQuestion;
-	// I have no idea why I used this, probably because the game would break without it
+    // I have no idea why I used this, probably because the game would break without it
     bool correctAnswerChosen;
 
     // Function to split a string in the questions vector
     void splitString(std::string const &stringToSplit, const char delimitation);
-    
-	// Game logic functions
-	void displayQuestion(unsigned int index);
+  
+    // Game logic functions
+    void displayQuestion(unsigned int index);
     void clearQuestion();
     void showGameOver(sf::RenderWindow* window);
     void gameLoop(sf::RenderWindow* window);
