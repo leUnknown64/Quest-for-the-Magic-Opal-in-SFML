@@ -2,7 +2,7 @@
 
 DartThrow::DartThrow(){
     // Initialize game logic variables
-	// (global timer is not really in seconds)
+    // (global timer is not really in seconds)
     points = 0;
     globalTimerSeconds = 1;
 
@@ -31,14 +31,14 @@ void DartThrow::loadChildren(sf::Font* font){
     addText(new TextObj(*font, "0", sf::Vector2f(240, 20), 26, sf::Color(0,0,0)));
     
     // (Last two text boxes are reserved for the game over screen)
-	addText(new TextObj(*font, "", sf::Vector2f(350, 160), 28, sf::Color(230,0,0)));
+    addText(new TextObj(*font, "", sf::Vector2f(350, 160), 28, sf::Color(230,0,0)));
     addText(new TextObj(*font, "", sf::Vector2f(20, 220), 18, sf::Color(0,0,0)));
 }
 
 // Master update function
 // Updates mouse cursor position and game processes
 void DartThrow::update(sf::RenderWindow* window){
-	updateMousePositions(window);
+    updateMousePositions(window);
     gameLoop(window);
 }
 
@@ -47,7 +47,7 @@ void DartThrow::spawnBalloon(){
     // Generate a random sprite scale value between 0.4 and 0.7
     float randScale = 0.4 + static_cast<float> (rand()) / (static_cast<float> (RAND_MAX/(0.3)));
     // Generate a random position for the sprite 
-	// The boundaries for the spawn region are 80 < x < 880 and 180 < y < 520
+    // The boundaries for the spawn region are 80 < x < 880 and 180 < y < 520
     float randXpos = 80 + (rand() % 801);
     float randYPos = 180 + (rand() % 341);
 
@@ -64,7 +64,7 @@ void DartThrow::drawBalloons(sf::RenderWindow* window){
 // Update the position of the mouse cursor
 void DartThrow::updateMousePositions(sf::RenderWindow* window){
     // Fetch the cursor's screen coordinates
-	mousePosWindow = sf::Mouse::getPosition(*window);
+    mousePosWindow = sf::Mouse::getPosition(*window);
     mousePosView = window->mapPixelToCoords(mousePosWindow);
 
     // A character holding a dart follows the mouse cursor
@@ -74,8 +74,8 @@ void DartThrow::updateMousePositions(sf::RenderWindow* window){
 
 // Display the Game Over screen
 void DartThrow::showGameOver(sf::RenderWindow* window){
-	// Add text to the two reserved text boxes
-	getText(2)->changeString("Game Over!");
+    // Add text to the two reserved text boxes
+    getText(2)->changeString("Game Over!");
     getText(3)->changeString("Press ESC to return to the game select screen");
     window->draw(getText(0)->text);
     window->draw(getText(1)->text);
@@ -87,12 +87,12 @@ void DartThrow::showGameOver(sf::RenderWindow* window){
 void DartThrow::gameLoop(sf::RenderWindow* window){
     if(globalTimerSeconds > 1000){
         // Game Over after 1000 "seconds"
-		showGameOver(window);
+        showGameOver(window);
     }
     else{
-		// Render all objects to the screen
+        // Render all objects to the screen
         drawChildren(window);
-		drawBalloons(window);
+        drawBalloons(window);
 
         // Spawn balloons (must be in the circus tent)
         if(balloons.size() < maxBalloons){
@@ -109,7 +109,7 @@ void DartThrow::gameLoop(sf::RenderWindow* window){
         // If a balloon is popped or "deleted", set this flag to true
         bool deleted = false;
 
-		// For every spawned balloon
+        // For every spawned balloon
         for(unsigned int i = 0; i < balloons.size(); i++){
             deleted = false;
 
@@ -127,7 +127,7 @@ void DartThrow::gameLoop(sf::RenderWindow* window){
         }
 
         // If the balloon is on the screen for 60 seconds, delete it without awarding
-		// points to the player
+        // points to the player
         if(globalTimerSeconds % 60 == 0 && !balloons.empty()){
             balloons.erase(balloons.begin());
         }
