@@ -19,7 +19,7 @@ private:
         "In the book Chocky, we are told|where Chocky is from.",
         "Which of the following does|Theodore not do in the film Her?",
         "The third rule of fight club is|every fight lasts ten minutes."};
-    
+
 	// Stores the split portions of a string in the questions vector
 	std::vector<std::string> splitQuestion;
     
