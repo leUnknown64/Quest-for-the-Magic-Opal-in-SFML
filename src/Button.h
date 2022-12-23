@@ -6,11 +6,11 @@
 // Class for a button object
 class Button{
 private:
-	// Buttons are rectangular
+    // Buttons are rectangular
     sf::RectangleShape button;
-	// Button's text
+    // Button's text
     sf::Text buttonText;
-	// The color for a button's idle state
+    // The color for a button's idle state
     sf::Color idleColor;
 
     // Button states
