@@ -2,8 +2,8 @@
 
 TriviaNight::TriviaNight(){
     // Set the current question to 0 (first one)
-	// Set points to 0
-	correctAnswerChosen = false;
+    // Set points to 0
+    correctAnswerChosen = false;
     points = 0;
     currentQuestion = 0;
 }
@@ -12,9 +12,9 @@ TriviaNight::~TriviaNight(){}
 
 // Splits a string in the questions vector
 void TriviaNight::splitString(std::string const &stringToSplit, const char delimitation){
-	std::stringstream ss(stringToSplit);
+    std::stringstream ss(stringToSplit);
     // Split portion of stringToSplit
-	std::string splitPortion;
+    std::string splitPortion;
 
     // Tokenize the string using the delimitation character and store each part in splitQuestion
     while(std::getline(ss, splitPortion, delimitation)){
@@ -25,12 +25,12 @@ void TriviaNight::splitString(std::string const &stringToSplit, const char delim
 // Displays a trivia question to the screen
 void TriviaNight::displayQuestion(unsigned int index){
     // Split the current question's string, if needed
-	splitString(questions[index], '|');
-	// Display the question on the screen
+    splitString(questions[index], '|');
+    // Display the question on the screen
     for(unsigned int portion = 0; portion < splitQuestion.size(); portion++){
         getText(portion)->changeString(splitQuestion[portion]);
     }
-	// Clean up splitQuestion
+    // Clean up splitQuestion
     splitQuestion.clear();
 
     // Display answers choices on the screen
@@ -49,8 +49,8 @@ void TriviaNight::clearQuestion(){
 
 // Display the game over screen
 void TriviaNight::showGameOver(sf::RenderWindow* window){
-	// Add text to the two reserved text boxes
-	getText(9)->changeString("Game Over!");
+    // Add text to the two reserved text boxes
+    getText(9)->changeString("Game Over!");
     getText(10)->changeString("Press ESC to return to the game select screen");
     window->draw(getText(7)->text);
     window->draw(getText(8)->text);
@@ -112,41 +112,41 @@ void TriviaNight::update(sf::RenderWindow* window){
 // Controls and updates game processes
 void TriviaNight::gameLoop(sf::RenderWindow* window){
     // Render all objects to the screen
-	drawChildren(window);
+    drawChildren(window);
 
-	// Display a question
+    // Display a question
     displayQuestion(currentQuestion);
 
-	// Check for a button press
+    // Check for a button press
     if(getButton("CHOICE_1")->isPressed() || getButton("CHOICE_2")->isPressed() || getButton("CHOICE_3")->isPressed() || getButton("CHOICE_4")->isPressed()){
-		if(getButton("CHOICE_"+std::to_string(correctAnswers[currentQuestion]))->isPressed()){
+        if(getButton("CHOICE_"+std::to_string(correctAnswers[currentQuestion]))->isPressed()){
             correctAnswerChosen = true;
         }
         else{
-			// Tell the player their answer was wrong
+            // Tell the player their answer was wrong
             getText(11)->changeString("Wrong!");
 
-			// Go to the next question
+            // Go to the next question
             currentQuestion++;
             clearQuestion();
 
-			// Deduct 2 points
+            // Deduct 2 points
             points -= 2;
-			// Sleep was used to avoid breaking the game bc it updated too fast
+            // Sleep was used to avoid breaking the game bc it updated too fast
             sf::sleep(sf::milliseconds(650));
         }
     }
     if(correctAnswerChosen){
-		// Why did I make a flag for the correct choice?
+        // Why did I make a flag for the correct choice?
 
-		// Tell the player their answer was correct
+        // Tell the player their answer was correct
         getText(11)->changeString("Correct!");
 
-		// Go the the next question
+        // Go the the next question
         currentQuestion++;
         clearQuestion();
 
-		// Award 5 points
+        // Award 5 points
         points += 5;
         sf::sleep(sf::milliseconds(650));
     }
