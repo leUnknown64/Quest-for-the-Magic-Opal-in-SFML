@@ -2,17 +2,17 @@
 
 // Overloaded constructor allows for custom buttons
 Button::Button(sf::Font &font, std::string text, sf::Vector2f size, int charSize, sf::Color bgColor, sf::Color textColor, sf::Vector2f pos){
-	// Set parameters for the button's text
+    // Set parameters for the button's text
     buttonText.setFont(font);
     buttonText.setString(text);
     buttonText.setFillColor(textColor);
     buttonText.setCharacterSize(charSize);
     
-	// Set the button's size and position
-	button.setSize(size);
-	setPosition(pos);
+    // Set the button's size and position
+    button.setSize(size);
+    setPosition(pos);
 
-	// Initialize the state to BTN_IDLE and use the idle color
+    // Initialize the state to BTN_IDLE and use the idle color
     idleColor = bgColor;
     setBGColor(idleColor);
     currentState = BTN_IDLE;
