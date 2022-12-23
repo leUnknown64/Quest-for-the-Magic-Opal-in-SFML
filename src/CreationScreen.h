@@ -7,7 +7,7 @@
 // Class for the character creation screen
 class CreationScreen : public Screen{
 private:
-	// Flag for switching to the next screen (Game Select)
+    // Flag for switching to the next screen (Game Select)
     bool switchScreen;
 
 public:
