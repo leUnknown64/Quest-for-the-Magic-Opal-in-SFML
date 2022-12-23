@@ -1,8 +1,8 @@
 #include "CreationScreen.h"
 
 CreationScreen::CreationScreen(){
-	// Do not switch screens on startup
-	switchScreen = false;
+    // Do not switch screens on startup
+    switchScreen = false;
 }
 
 CreationScreen::~CreationScreen(){}
@@ -38,10 +38,10 @@ void CreationScreen::loadChildren(sf::Font* font){
 // Master update function
 void CreationScreen::update(sf::RenderWindow* window){
     if(getButton("TO_GAME_SELECT")->isPressed()){
-        // Switch to the Game Select screen if the button was pressed
-		switchScreen = true;
+	// Switch to the Game Select screen if the button was pressed
+        switchScreen = true;
     }
 	
-	// Render objects to the screen
+    // Render objects to the screen
     drawChildren(window);
 }
