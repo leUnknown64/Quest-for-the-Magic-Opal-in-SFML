@@ -2,7 +2,7 @@
 
 TitleScreen::TitleScreen(){
     // Initialize to false on startup
-	gameStarted = false;
+    gameStarted = false;
 }
 
 TitleScreen::~TitleScreen(){}
