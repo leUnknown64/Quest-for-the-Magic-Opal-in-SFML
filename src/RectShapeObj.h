@@ -11,7 +11,7 @@ public:
     RectShapeObj(sf::Vector2f pos, sf::Vector2f size, sf::Color fillColor, sf::Color outlineColor, float thickness);
     ~RectShapeObj();
     // Shape object
-	sf::RectangleShape shape;
+    sf::RectangleShape shape;
 };
 
 #endif
