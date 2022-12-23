@@ -2,7 +2,7 @@
 
 SelectGame::SelectGame(){
     // Initalize chosenGame to 0 (Game Select screen)
-	chosenGame = 0;
+    chosenGame = 0;
 }
 
 SelectGame::~SelectGame(){}
@@ -63,7 +63,7 @@ int SelectGame::getChosenGame(){
 // Master update function
 void SelectGame::update(sf::RenderWindow* window){
     // Render objects to the screen
-	drawChildren(window);
+    drawChildren(window);
 
     // Check for what is selected and update chosenGame
     if(getButton("DART_THROW")->isPressed()){
