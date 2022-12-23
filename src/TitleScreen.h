@@ -7,7 +7,7 @@
 // Class for the title screen
 class TitleScreen : public Screen{
 private:
-	// Flag to start the game (switch to the opening story)
+    // Flag to start the game (switch to the opening story)
     bool gameStarted;
 
 public:
